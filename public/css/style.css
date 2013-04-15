@@ -1,0 +1,4 @@
+@import url(flags.css);
+#main_content {margin-top: 50px;}
+div.introduction_block {text-align: center; min-height: 190px;}
+div.introduction_block p.text {text-align: justify;}

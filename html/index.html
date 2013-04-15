@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>cafe.ehkoo.com - Homepage</title>
+    <meta charset="utf8">
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="row">
+                    <ul class="nav">
+                        <li><a href="" title="">Home</a></li>
+                        <li><a href="" title="">Browse</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="flag flag-us"></i> English<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href=""><i class="flag flag-us"></i> English</a></li>
+                            <li><a href=""><i class="flag flag-vn"></i> Tiếng Việt</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-search pull-right">
+                        <input class="search-query" placeholder="Looking for a cafe...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main_content" class="container">
+        <div id="myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="active item">
+                    <img alt="" src="../public/img/cafe-nhen.jpg">
+                    <div class="carousel-caption">
+                        <h4>Cafe Nhen</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img alt="" src="../public/img/soleil-coffee.jpg">
+                    <div class="carousel-caption">
+                        <h4>First Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img alt="" src="../public/img/studio-of-saiga.jpg">
+                    <div class="carousel-caption">
+                        <h4>First Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span4">
+                <div class="introduction_block well">
+                    <p><i class="icon-coffee icon-4x"></i></p>
+                    <h5>Discover new cafe</h5>
+                    <p class="text">With a huge collection of cafe shop in two major cities, we are sure that you can easy find a new place to meet people.</p>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="introduction_block well">
+                    <p><i class="icon-mobile-phone icon-4x"></i></p>
+                    <h5>Easy access</h5>
+                    <p class="text">Our site is reponsive. That means you can have the same experiences on whatever your devices. PC, tablet, smart phone, you name it.</p>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="introduction_block well">
+                    <p><i class="icon-flag icon-4x"></i></p>
+                    <h5>Multi-language</h5>
+                    <p class="text">Xin chào! Hello! Currently we offer you in English and Vietnamese. More translations will come very soon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <div class="row">
+            <div class="span6">
+                <p>cafe.ehkoo.com &copy; 2013 An Cao Luu Bao</p>
+            </div>
+            <div class="span6 text-right">
+                <p>A small project of Self-studied in ICT course</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+$(function() {
+    $('.carousel').carousel({
+        inteval: 2000
+    });
+});
+    </script>
+</body>
+</html>

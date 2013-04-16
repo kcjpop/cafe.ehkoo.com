@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>cafe.ehkoo.com - Browse</title>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-responsive.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <div class="row">
+                    <ul class="nav">
+                        <li><a href="index.html" title="">Home</a></li>
+                        <li><a href="browse.html" title="">Browse</a></li>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="flag flag-us"></i> English<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href=""><i class="flag flag-us"></i> English</a></li>
+                            <li><a href=""><i class="flag flag-vn"></i> Tiếng Việt</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-search pull-right">
+                        <input class="search-query" placeholder="Looking for a cafe...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main_content" class="container">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li><a href="browse.html">Browse</a> <span class="divider">/</span></li>
+            <li class="active">Country House Coffee</li>
+        </ul>
+
+        <div class="page-header">
+            <h2>Country House Coffee</h2>
+        </div>
+
+        <p class="address"><strong>Address:</strong> 18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</p>
+        <p>Nếu có dịp đi đến đường Phan Văn Trị (quận Gò Vấp, TP.HCM), bạn sẽ khó mà bỏ qua được Country House, một quán café với kiểu kiến trúc phương Tây. Khi đã đi qua cánh cổng nhỏ, Country House sẽ khiến bạn không khỏi ngạc nhiên bởi một không gian mênh mông với cơ man là bàn ghế, cây cối, thác nước.</p>
+
+        <p>Mỗi không gian ở đây lại cho khách một cảm giác khác nhau: khu vực dưới mái hiên được bố trí bởi những chậu hoa kiểng treo trên cao và đặt trên bàn, trên tường ở mỗi bàn là một bức tranh nhỏ, khách sẽ được ngồi trên ghế sa lông êm ái cùng dãy bàn thấp. Khu vực ngoài trời được bố trí bởi các dãy bàn và ghế gỗ nằm xung quanh một hồ nước nhỏ chạy theo chiều dài của quán. Để tránh cái nắng nóng, Country House sử dụng khá nhiều dù và thiết bị phun sương, kèm theo là các quạt công nghiệp lớn. Tường gạch ở quán được lát bằng những viên đá cuội lớn, tạo cho khách cảm giác như đang ở trong một tòa lâu đài thu nhỏ. Đa dạng nhất phải nói đến là loại bàn ghế, từ các bộ sa lông đủ màu, các bộ ghế gỗ với các màu trắng, xanh, vân gỗ… đến các loại ghế giả kiểu thân cây được lót đệm. Đặc biệt nhất là Country House có cả một khu nhà bằng mô hình nằm bên trên thác nước. Khu vực phòng lạnh của quán cũng khá đặc biệt với lối vào có hình mái vòm tròn, bên trong là các dãy bàn với ghế salông hoa văn đủ màu sắc.</p>
+
+        <ul id="gallery" class="thumbnails">
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/360x270" alt=""></li>
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/150x170" alt=""></li>
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/400x150" alt=""></li>
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/150x170" alt=""></li>
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/400x150" alt=""></li>
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/360x270" alt=""></li>
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/320x200" alt=""></li>
+            <li class="item"><img class="img-polaroid" src="http://placehold.it/320x200" alt=""></li>
+        </ul>
+    </div>
+
+    <footer class="container">
+        <div class="row">
+            <div class="span6">
+                <p>cafe.ehkoo.com &copy; 2013 An Cao Luu Bao</p>
+            </div>
+            <div class="span6 text-right">
+                <p>A small project of Self-studied in ICT course</p>
+            </div>
+        </div>
+    </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../public/js/jquery.masonry.min.js"></script>
+    <script type="text/javascript">
+$(function() {
+    $('#gallery').imagesLoaded(function() {
+        $('#gallery').masonry({
+            itemSelector: '.item'
+        });
+    });
+});
+    </script>
+</body>
+</html>

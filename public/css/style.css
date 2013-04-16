@@ -1,4 +1,7 @@
 @import url(flags.css);
-#main_content {margin-top: 50px;}
+#main_content {margin-top: 50px;/* margin-bottom: 15px;*/}
 div.introduction_block {text-align: center; min-height: 190px;}
 div.introduction_block p.text {text-align: justify;}
+div.cafe_block {padding-top: 10px;}
+div.cafe_block:nth-child(2n+1) {background-color: #f9f9f9; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;}
+div.cafe_block .thumbnails > li {margin-bottom: 0;}

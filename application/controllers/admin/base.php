@@ -7,6 +7,7 @@ class Admin_Base_Controller extends Base_Controller
 	{
 		// JavaScript
 		Asset::add('bootstrap', 'js/bootstrap.min.js');
+		Asset::add('admin', 'js/admin.js');
 
 		// CSS
 		Asset::add('bootstrap', 'css/bootstrap.min.css');

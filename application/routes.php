@@ -37,6 +37,7 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+Route::controller('admin.base');
 Route::controller('admin.dashboard');
 
 /*

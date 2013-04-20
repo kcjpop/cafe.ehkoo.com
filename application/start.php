@@ -61,6 +61,7 @@ Laravel\Autoloader::$aliases = $aliases;
 Autoloader::map(array(
 	'Base_Controller'       => path('app').'controllers/base.php',
 	'Admin_Base_Controller' => path('app').'controllers/admin/base.php',
+	'MongoDB_Base'          => path('app').'models/base.php',
 ));
 
 /*

@@ -15,13 +15,13 @@
             <div class="container">
                 <div class="row">
                     <ul class="nav">
-                        <li><a href="index.html" title="">Dashboard</a></li>
+                        <li><a href="<?php echo URL::to_action('admin.dashboard') ?>" title="">Dashboard</a></li>
                         <li class="dropdown">
-                            <a href="setting.html" class="dropdown-toggle" data-toggle="dropdown">Setting<b class="caret"></b>
+                            <a href="<?php echo URL::to_action('admin.setting') ?>" class="dropdown-toggle" data-toggle="dropdown">Setting<b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="setting.html">General</a></li>
-                                <li><a href="setting.html">Laguages</a></li>
+                                <li><a href="<?php echo URL::to_action('admin.setting') ?>#general">General</a></li>
+                                <li><a href="<?php echo URL::to_action('admin.setting') ?>#language">Laguages</a></li>
                             </ul>
                         </li>
                     </ul>

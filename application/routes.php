@@ -37,6 +37,8 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+Route::controller('admin.dashboard');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

@@ -37,8 +37,10 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
-Route::controller('admin.base');
-Route::controller('admin.dashboard');
+Route::get('admin/dashboard', array('as' => 'admin.dashboard', 'uses' => 'admin.dashboard@index'));
+
+// Route::controller('admin.base');
+// Route::controller('admin.dashboard');
 
 /*
 |--------------------------------------------------------------------------

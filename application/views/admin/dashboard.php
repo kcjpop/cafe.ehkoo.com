@@ -1,17 +1,15 @@
         <div class="row">
             <div class="span6">
                 <h3>Add new cafe</h3>
-
-
-<form>
+<form method="post" action="<?php echo URL::to_action('admin.cafe@create') ?>">
     <fieldset>
         <legend>General</legend>
         <label>Name</label>
-        <input type="text" placeholder="Name" class="span6">
+        <input type="text" class="span6" name="name" placeholder="Name">
         <label>Address</label>
-        <input type="text" placeholder="Address" class="span6">
-        <label>Description</label>
-        <textarea rows="10" class="span6"></textarea>
+        <input type="text" class="span6" name="address" placeholder="Address">
+        <label>Review</label>
+        <textarea rows="10" class="span6" name="review"></textarea>
         <legend>Pictures</legend>
         <p>Uploading 4/10...</p>
         <div class="progress progress-striped active">

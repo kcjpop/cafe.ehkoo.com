@@ -9,37 +9,36 @@ if($status !== null) :
         </div>
 <?php endif; ?>
         <ul class="nav nav-tabs" id="tab_settings">
-            <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+            <li><a href="#general" data-toggle="tab">General</a></li>
             <li><a href="#language" data-toggle="tab">Languages</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="general">
 
-
 <form class="form-horizontal">
     <div class="control-group">
-        <label class="control-label" for="inputEmail">Site Name</label>
+        <label class="control-label" for="site_name">Site Name</label>
         <div class="controls">
-            <input class="span6" type="text" id="inputEmail">
+            <input class="span6" type="text" name id="site_name">
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label" for="inputPassword">Meta Keywords</label>
+        <label class="control-label" for="meta_keywords">Meta Keywords</label>
         <div class="controls">
-            <input class="span6" type="password" id="inputPassword">
+            <input class="span6" type="text" id="meta_keywords">
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label" for="inputPassword">Meta Descriptions</label>
+        <label class="control-label" for="meta_description">Meta Description</label>
         <div class="controls">
-            <input class="span6" type="password" id="inputPassword">
+            <input class="span6" type="text" id="meta_description">
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label" for="inputPassword">Site Enable</label>
+        <label class="control-label" for="site_enabled">Site Enable</label>
         <div class="controls">
-            <label class="radio"><input type="radio" name="site_enable" checked="checked"> Yes</label>
-            <label class="radio"><input type="radio" name="site_enable"> No</label>
+            <label class="radio"><input type="radio" name="site_enabled" checked="checked"> Yes</label>
+            <label class="radio"><input type="radio" name="site_enabled"> No</label>
         </div>
     </div>
 

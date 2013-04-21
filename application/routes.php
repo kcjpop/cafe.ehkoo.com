@@ -34,6 +34,8 @@
 
 Route::get('/', 'home@index');
 
+Route::controller('cafe');
+
 Route::controller('admin.setting');
 Route::controller('admin.dashboard');
 Route::controller('admin.language');

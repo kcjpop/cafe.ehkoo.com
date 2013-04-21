@@ -2,7 +2,7 @@
 class Site_Controller extends Base_Controller
 {
 	public $layout = 'layouts.site';
-	
+
 	public function before()
 	{
 		// JavaScript
@@ -13,6 +13,6 @@ class Site_Controller extends Base_Controller
 		Asset::add('bootstrap', 'css/bootstrap.min.css');
 		Asset::add('bootstrap-responsive', 'css/bootstrap-responsive.css');
 		Asset::add('font-awesome', 'css/font-awesome.min.css');
-		Asset::add('admin', 'css/admin.style.css');
+		Asset::add('admin', 'css/style.css');
 	}
 }

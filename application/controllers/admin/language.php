@@ -3,6 +3,11 @@ class Admin_Language_Controller extends Admin_Base_Controller
 {
 	public $restful = true;
 
+	/**
+	 * Create new cafe
+	 * 
+	 * @return [type] [description]
+	 */
 	public function post_index()
 	{
 		$language = new Language();

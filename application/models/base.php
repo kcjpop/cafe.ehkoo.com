@@ -26,4 +26,14 @@ class MongoDB_Base
 	{
 		return $this->db->insert($data, array('w' => 0));
 	}
+
+	public function find($query = array())
+	{
+		return $this->db->find($query);
+	}
+
+	public function findOne($query)
+	{
+		return $this->db->findOne($query);
+	}
 }

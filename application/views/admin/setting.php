@@ -55,10 +55,13 @@ if($status !== null) :
     <div class="control-group">
         <label class="control-label" for="inputEmail">Default language</label>
         <div class="controls">
+<?php if(isset($languages) && !empty($languages)) : ?>
             <select>
-                <option>English</option>
-                <option>Tiếng Việt</option>
+<?php foreach($languages as $obj) : ?>
+                <option value="<?php echo $obj['code'] ?>"><?php echo $obj['name'] ?></option>
+<?php endforeach; ?>
             </select>
+<?php endif; ?>
         </div>
     </div>
     

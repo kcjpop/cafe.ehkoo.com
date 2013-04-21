@@ -32,10 +32,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home.index');
-});
+Route::get('/', 'home@index');
 
 Route::controller('admin.setting');
 Route::controller('admin.dashboard');

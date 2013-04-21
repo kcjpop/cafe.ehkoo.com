@@ -12,19 +12,23 @@
             <div class="container">
                 <div class="row">
                     <ul class="nav">
-                        <li><a href="index.html" title="">Home</a></li>
-                        <li><a href="browse.html" title="">Browse</a></li>
+                        <li><a href="<?php echo URL::base() ?>" title="">Home</a></li>
+                        <li><a href="<?php echo URL::to('cafe') ?>" title="">Browse</a></li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="flag flag-us"></i> English<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href=""><i class="flag flag-us"></i> English</a></li>
-                            <li><a href=""><i class="flag flag-vn"></i> Tiếng Việt</a></li>
+<?php if(isset($languages)) :
+foreach($languages as $obj) :
+?>
+                            <li><a href="<?php echo URL::current() ?>?lang=<?php echo $obj ['code'] ?>"><i class="flag flag-<?php echo $obj['code'] ?>"></i> <?php echo $obj['name'] ?></a></li>
+<?php endforeach;
+endif; ?>
                         </ul>
                         </li>
                     </ul>
-                    <form class="navbar-search pull-right">
-                        <input class="search-query" placeholder="Looking for a cafe...">
+                    <form class="navbar-search pull-right" method="get" action="<?php echo URL::to('cafe/search') ?>">
+                        <input class="search-query" name="q" placeholder="Looking for a cafe...">
                     </form>
                 </div>
             </div>

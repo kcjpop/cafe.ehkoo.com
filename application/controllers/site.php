@@ -14,5 +14,19 @@ class Site_Controller extends Base_Controller
 		Asset::add('bootstrap-responsive', 'css/bootstrap-responsive.css');
 		Asset::add('font-awesome', 'css/font-awesome.min.css');
 		Asset::add('admin', 'css/style.css');
+
+		// Get available languages
+		$language = new Language();
+		$languages = array();
+		$cursor = $language->find();
+		if($cursor->hasNext())
+		{
+			foreach($cursor as $obj)
+			{
+				$languages[] = $obj;
+			}
+		}
+
+		$this->layout->with('languages', $languages);
 	}
 }

@@ -36,4 +36,9 @@ class MongoDB_Base
 	{
 		return $this->db->findOne($query);
 	}
+
+	public function count($query = array(), $limit = 0, $skip = 0)
+	{
+		return $this->db->count($query, $limit, $skip);
+	}
 }

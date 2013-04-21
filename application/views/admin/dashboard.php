@@ -84,57 +84,13 @@ endif;
         </tr>
     </thead>
     <tbody>
+<?php foreach($cafes as $obj) : ?>
         <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
+            <td><a href="<?php echo URL::to_action('admin.cafe@edit', array($obj['_id'])) ?>"><?php echo implode('<br>', $obj['name']) ?></a></td>
+            <td><?php echo implode('<br>', $obj['address']) ?></td>
+            <td><?php echo $obj['views'] ?></td>
         </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-        <tr>
-            <td><a href="">Country House Coffee</a></td>
-            <td>18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</td>
-            <td>125</td>
-        </tr>
-
+<?php endforeach; ?>
     </tbody>
 </table>
 

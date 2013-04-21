@@ -40,6 +40,7 @@ Route::get('/', function()
 Route::controller('admin.setting');
 Route::controller('admin.dashboard');
 Route::controller('admin.language');
+Route::controller('admin.cafe');
 
 /*
 |--------------------------------------------------------------------------

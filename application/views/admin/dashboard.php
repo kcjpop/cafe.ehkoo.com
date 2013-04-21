@@ -1,3 +1,19 @@
+<?php
+$status = Session::get('status');
+// var_dump(Session::get('message'));
+if($status !== null) :
+    ?>
+        <div class="row">
+            <div class="span12">
+                <div class="alert alert-<?php echo $status ?>">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong><?php echo ucfirst($status) ?>!!!</strong> <?php echo Session::get('message') ?>
+                </div>
+            </div>
+        </div>
+    <?php
+endif;
+?>
         <div class="row">
             <div class="span6">
                 <h3>Add new cafe</h3>
@@ -5,11 +21,44 @@
     <fieldset>
         <legend>General</legend>
         <label>Name</label>
-        <input type="text" class="span6" name="name" placeholder="Name">
+<?php
+if(!empty($languages)) :
+    foreach($languages as $obj) :
+?>
+        <div class="input-prepend">
+            <span class="add-on"><?php echo $obj['code'] ?></span>
+            <input class="span5" name="name[<?php echo $obj['code'] ?>]" type="text" placeholder="">
+        </div>
+<?php
+    endforeach;
+endif;
+?>
         <label>Address</label>
-        <input type="text" class="span6" name="address" placeholder="Address">
+<?php
+if(!empty($languages)) :
+    foreach($languages as $obj) :
+?>
+        <div class="input-prepend">
+            <span class="add-on"><?php echo $obj['code'] ?></span>
+            <input class="span5" name="address[<?php echo $obj['code'] ?>]" type="text" placeholder="">
+        </div>
+<?php
+    endforeach;
+endif;
+?>
         <label>Review</label>
-        <textarea rows="10" class="span6" name="review"></textarea>
+<?php
+if(!empty($languages)) :
+    foreach($languages as $obj) :
+?>
+        <div class="input-prepend">
+            <span class="add-on"><?php echo $obj['code'] ?></span>
+            <textarea rows="10" class="span5" name="review[<?php echo $obj['code'] ?>]"></textarea>
+        </div>
+<?php
+    endforeach;
+endif;
+?>
         <legend>Pictures</legend>
         <p>Uploading 4/10...</p>
         <div class="progress progress-striped active">

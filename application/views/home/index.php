@@ -34,8 +34,8 @@
             <div class="span4">
                 <div class="introduction_block well">
                     <p><i class="icon-coffee icon-4x"></i></p>
-                    <h5>Discover new cafe</h5>
-                    <p class="text">With a huge collection of cafe shop in two major cities, we are sure that you can easy find a new place to meet people.</p>
+                    <h5><?php echo __('cafe.home.discover_new_cafe_heading') ?></h5>
+                    <p class="text"><?php echo __('cafe.home.discover_new_cafe_content') ?></p>
                 </div>
             </div>
             <div class="span4">

@@ -15,30 +15,30 @@ if($status !== null) :
         <div class="tab-content">
             <div class="tab-pane active" id="general">
 
-<form class="form-horizontal">
+<form class="form-horizontal" method="post" action=<?php echo URL::to_action('admin.setting@index') ?>>
     <div class="control-group">
         <label class="control-label" for="site_name">Site Name</label>
         <div class="controls">
-            <input class="span6" type="text" name id="site_name">
+            <input class="span6" type="text" name="key[site_name]" id="site_name">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="meta_keywords">Meta Keywords</label>
         <div class="controls">
-            <input class="span6" type="text" id="meta_keywords">
+            <input class="span6" type="text" name="key[meta_keywords]" id="meta_keywords">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="meta_description">Meta Description</label>
         <div class="controls">
-            <input class="span6" type="text" id="meta_description">
+            <input class="span6" type="text" name="key[meta_description]" id="meta_description">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="site_enabled">Site Enable</label>
         <div class="controls">
-            <label class="radio"><input type="radio" name="site_enabled" checked="checked"> Yes</label>
-            <label class="radio"><input type="radio" name="site_enabled"> No</label>
+            <label class="radio"><input type="radio" name="key[site_enabled]" value="1" checked="checked"> Yes</label>
+            <label class="radio"><input type="radio" name="key[site_enabled]" value="0"> No</label>
         </div>
     </div>
 
@@ -50,12 +50,12 @@ if($status !== null) :
 
             </div>
             <div class="tab-pane" id="language">
-<form class="form-horizontal">
+<form class="form-horizontal" method="post" action=<?php echo URL::to_action('admin.setting@index') ?>>
     <div class="control-group">
         <label class="control-label" for="inputEmail">Default language</label>
         <div class="controls">
 <?php if(isset($languages) && !empty($languages)) : ?>
-            <select>
+            <select name="key[default_language]">
 <?php foreach($languages as $obj) : ?>
                 <option value="<?php echo $obj['code'] ?>"><?php echo $obj['name'] ?></option>
 <?php endforeach; ?>
@@ -67,8 +67,8 @@ if($status !== null) :
     <div class="control-group">
         <label class="control-label" for="inputPassword">Allow users to switch languages?</label>
         <div class="controls">
-            <label class="radio"><input type="radio" name="site_enable" checked="checked"> Yes</label>
-            <label class="radio"><input type="radio" name="site_enable"> No</label>
+            <label class="radio"><input type="radio" name="key[is_multi_language]" value="1" checked="checked"> Yes</label>
+            <label class="radio"><input type="radio" name="key[is_multi_language]" value="0"> No</label>
         </div>
     </div>
 

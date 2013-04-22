@@ -41,4 +41,9 @@ class MongoDB_Base
 	{
 		return $this->db->count($query, $limit, $skip);
 	}
+
+	public function save($document, $options = array())
+	{
+		return $this->db->save($document, $options);
+	}
 }

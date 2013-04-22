@@ -17,8 +17,8 @@
                             <a href="<?php echo URL::to_action('admin.setting') ?>" class="dropdown-toggle" data-toggle="dropdown">Setting<b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo URL::to_action('admin.setting') ?>#general">General</a></li>
-                                <li><a href="<?php echo URL::to_action('admin.setting') ?>#language">Laguages</a></li>
+                                <li><a href="<?php echo URL::to_action('admin.setting') ?>?tab=general">General</a></li>
+                                <li><a href="<?php echo URL::to_action('admin.setting') ?>?tab=language">Laguages</a></li>
                             </ul>
                         </li>
                     </ul>

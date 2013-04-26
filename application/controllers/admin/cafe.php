@@ -52,7 +52,7 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 				}
 			}
 
-			return Redirect::to('admin/cafe')
+			return Redirect::to('admin')
 				->with('status', $status)
 				->with('message', $message);
 		}

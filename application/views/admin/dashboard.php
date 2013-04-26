@@ -20,7 +20,7 @@ endif;
 <form method="post" action="<?php echo URL::to_action('admin.cafe@create') ?>">
     <fieldset>
         <legend>General</legend>
-        <label>Name</label>
+        <label>Name*</label>
 <?php
 if(!empty($languages)) :
     foreach($languages as $obj) :

@@ -1,7 +1,23 @@
 <?php
 class Admin_Cafe_Controller extends Admin_Base_Controller
 {
-	public function action_create()
+	public function action_index()
+	{
+		// Get all languages
+		$language = new Language();
+		$languages = $language->find();
+		
+		// Get file uploader
+		$uploader = Router::route('GET', 'upload')
+			->call();
+
+		$this->layout->nest('content', 'admin.cafe', array(
+			'languages' => $languages,
+			'uploader' => $uploader
+		));
+	}
+
+	public function action_do_create()
 	{
 		if(Request::method() === 'POST')
 		{
@@ -36,9 +52,11 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 				}
 			}
 
-			return Redirect::to('admin/dashboard')
+			return Redirect::to('admin/cafe')
 				->with('status', $status)
 				->with('message', $message);
 		}
+
+
 	}
 }

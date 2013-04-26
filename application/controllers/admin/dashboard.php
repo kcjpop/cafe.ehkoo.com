@@ -37,15 +37,10 @@ class Admin_Dashboard_Controller extends Admin_Base_Controller
 		$total = $cafe->count();
 		$pagination = Paginator::make($cafes, $total, $per_page);
 
-		// Get file uploader
-		$uploader = Router::route('GET', 'upload')
-			->call();
-
 		$this->layout->nest('content', 'admin.dashboard', array(
 			'languages'  => $languages,
 			'cafes'      => $cafes,
-			'pagination' => $pagination,
-			'uploader'   => $uploader
+			'pagination' => $pagination
 		));
 	}
 }

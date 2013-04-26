@@ -26,7 +26,7 @@
 
                     <ul class="nav pull-right">
                         <li><a href="<?php echo URL::base() ?>" title="">Home page</a></li>
-                        <li><a href="<?php echo URL::to_action('auth/logout') ?>" title="">Logout</a></li>
+                        <li><a href="<?php echo URL::to_action('auth.logout') ?>" title="">Logout</a></li>
                     </ul>
                 </div>
             </div>

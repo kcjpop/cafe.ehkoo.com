@@ -15,84 +15,34 @@ if($status !== null) :
 endif;
 ?>
         <div class="row">
-            <div class="span6">
-                <h3>Add new cafe</h3>
-<form method="post" action="<?php echo URL::to_action('admin.cafe@create') ?>">
-    <fieldset>
-        <legend>General</legend>
-        <label>Name*</label>
-<?php
-if(!empty($languages)) :
-    foreach($languages as $obj) :
-?>
-        <div class="input-prepend">
-            <span class="add-on"><?php echo $obj['code'] ?></span>
-            <input class="span5" name="name[<?php echo $obj['code'] ?>]" type="text" placeholder="">
-        </div>
-<?php
-    endforeach;
-endif;
-?>
-        <label>Address</label>
-<?php
-if(!empty($languages)) :
-    foreach($languages as $obj) :
-?>
-        <div class="input-prepend">
-            <span class="add-on"><?php echo $obj['code'] ?></span>
-            <input class="span5" name="address[<?php echo $obj['code'] ?>]" type="text" placeholder="">
-        </div>
-<?php
-    endforeach;
-endif;
-?>
-        <label>Review</label>
-<?php
-if(!empty($languages)) :
-    foreach($languages as $obj) :
-?>
-        <div class="input-prepend">
-            <span class="add-on"><?php echo $obj['code'] ?></span>
-            <textarea rows="10" class="span5" name="review[<?php echo $obj['code'] ?>]"></textarea>
-        </div>
-<?php
-    endforeach;
-endif;
-?>
-        <legend>Pictures</legend>
-        <?php echo $uploader ?>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn">Reset</button>
-        </div>
-    </fieldset>
-</form>
-
-
+            <div class="span12">
+                <h3 class="pull-left">All cafe</h3>
+                <a href="<?php echo URL::to_action('admin/cafe') ?>" class="btn btn-success pull-right"><i class="icon-plus"></i> Add new cafe</a>
             </div>
-            <div class="span6">
-                <h3>All cafe</h3>
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>View</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php foreach($cafes as $obj) : ?>
-        <tr>
-            <td><a href="<?php echo URL::to_action('admin.cafe@edit', array($obj['_id'])) ?>"><?php echo implode('<br>', $obj['name']) ?></a></td>
-            <td><?php echo implode('<br>', $obj['address']) ?></td>
-            <td><?php echo $obj['views'] ?></td>
-        </tr>
-<?php endforeach; ?>
-    </tbody>
-</table>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php foreach($cafes as $obj) : ?>
+                <tr>
+                    <td><a href="<?php echo URL::to_action('admin.cafe@edit', array($obj['_id'])) ?>"><?php echo implode('<br>', $obj['name']) ?></a></td>
+                    <td><?php echo implode('<br>', $obj['address']) ?></td>
+                    <td><?php echo $obj['views'] ?></td>
+                </tr>
+        <?php endforeach; ?>
+            </tbody>
+        </table>
 
-    <div class="pagination pagination-centered">
-    <?php echo $pagination->links() ?>
-    </div>
+        <div class="pagination pagination-centered">
+            <?php echo $pagination->links() ?>
+        </div>
+        <div class="row">
+            <div class="span12">
             </div>
         </div>

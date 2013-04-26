@@ -5,3 +5,8 @@
 .login-form { margin-left:65px; }
 
 #main_content {margin-top: 50px;}
+span.file-input-area {position: relative; cursor: pointer;}
+#file_upload {opacity: 0; position: absolute; top: 0; left: 0; cursor: pointer;}
+#file_list {margin-top: 5px;}
+#file_list code {display: block; margin-bottom: 3px;}
+#progress {display: none;}

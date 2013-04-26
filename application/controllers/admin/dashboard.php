@@ -2,7 +2,7 @@
 class Admin_Dashboard_Controller extends Admin_Base_Controller
 {
 	public function action_index()
-	{
+	{		
 		$per_page = Config::get('cafe.per_page');
 		$current_page = Input::get('page') !== null ? Input::get('page') : 1;
 		// Get all languages
@@ -37,10 +37,15 @@ class Admin_Dashboard_Controller extends Admin_Base_Controller
 		$total = $cafe->count();
 		$pagination = Paginator::make($cafes, $total, $per_page);
 
+		// Get file uploader
+		$uploader = Router::route('GET', 'upload')
+			->call();
+
 		$this->layout->nest('content', 'admin.dashboard', array(
 			'languages'  => $languages,
 			'cafes'      => $cafes,
-			'pagination' => $pagination
+			'pagination' => $pagination,
+			'uploader'   => $uploader
 		));
 	}
 }

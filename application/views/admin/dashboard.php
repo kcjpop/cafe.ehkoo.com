@@ -60,10 +60,7 @@ if(!empty($languages)) :
 endif;
 ?>
         <legend>Pictures</legend>
-        <p>Uploading 4/10...</p>
-        <div class="progress progress-striped active">
-            <div class="bar" style="width: 40%;"></div>
-        </div>
+        <?php echo $uploader ?>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn">Reset</button>

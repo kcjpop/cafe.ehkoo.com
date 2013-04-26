@@ -5,6 +5,7 @@
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php echo Asset::styles() ?>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -32,7 +33,6 @@
     </div>
 
     <!-- /container -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <?php echo Asset::scripts() ?>
 </body>
 </html>

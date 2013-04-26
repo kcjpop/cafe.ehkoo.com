@@ -19,19 +19,19 @@ if($status !== null) :
     <div class="control-group">
         <label class="control-label" for="site_name">Site Name</label>
         <div class="controls">
-            <input class="span6" type="text" name="key[site_name]" id="site_name">
+            <input class="span6" type="text" name="key[site_name]" id="site_name" value="<?php echo $settings['site_name'] ?>">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="meta_keywords">Meta Keywords</label>
         <div class="controls">
-            <input class="span6" type="text" name="key[meta_keywords]" id="meta_keywords">
+            <input class="span6" type="text" name="key[meta_keywords]" id="meta_keywords" value="<?php echo $settings['meta_keywords'] ?>">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="meta_description">Meta Description</label>
         <div class="controls">
-            <input class="span6" type="text" name="key[meta_description]" id="meta_description">
+            <input class="span6" type="text" name="key[meta_description]" id="meta_description" value="<?php echo $settings['meta_description'] ?>">
         </div>
     </div>
     <div class="control-group">

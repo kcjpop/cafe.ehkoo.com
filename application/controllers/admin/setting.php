@@ -24,8 +24,21 @@ class Admin_Setting_Controller extends Admin_Base_Controller
 			}
 		}
 
+		// Get all settings
+		$setting = new Setting();
+		$settings = array();
+		$cur = $setting->find();
+		if($cur->hasNext() === true)
+		{
+			foreach($cur as $obj)
+			{
+				$settings[$obj['_id']] = $obj['value'];
+			}
+		}
+
 		$this->layout->nest('content', 'admin.setting', array(
-			'languages' => $languages
+			'languages' => $languages,
+			'settings'  => $settings
 		));
 	}
 

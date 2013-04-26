@@ -22,10 +22,11 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 			{			
 				$cafe = new Cafe();
 				$result = $cafe->insert(array(
-					'name'    => Input::get('name'),
-					'address' => Input::get('address'),
-					'review'  => Input::get('review'),
-					'views'   => 0
+					'name'     => Input::get('name'),
+					'address'  => Input::get('address'),
+					'review'   => Input::get('review'),
+					'pictures' => Input::get('files', array()),
+					'views'    => 0
 				));
 
 				if($result !== true)

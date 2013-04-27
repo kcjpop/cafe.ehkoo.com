@@ -35,7 +35,8 @@
 
 return array(
 
-	'docs'   => array('handles' => 'docs'),
-	'upload' => array('handles' => 'upload')
+	'docs'    => array('handles' => 'docs'),
+	'upload'  => array('handles' => 'upload'),
+	'imagine' => array('auto' => false),
 
 );

@@ -21,16 +21,18 @@
 foreach($cafes as $obj) : ?>
         <div class="row cafe_block">
             <div class="span7">
-                <a href="cafe.html"><h5>Country House coffee</h5></a>
-                <p class="address">18C Phan Văn Trị, phường 10, Q.Gò Vấp, Tp.HCM</p>
+                <a href="cafe.html"><h5><?php echo $obj['name'] ?></h5></a>
+                <p class="address"><?php echo $obj['address'] ?></p>
                 <p><i class="icon-star"></i> View: <?php echo $obj['views'] ?></p>
             </div>
             <div class="span5 text-center">
+<?php if(isset($obj['pictures']) && !empty($obj['pictures'])) : ?>
                 <ul class="thumbnails">
-                    <li><img class="img-polaroid" src="http://placehold.it/100x100" alt="" width="100" height="100"></li>
-                    <li><img class="img-polaroid" src="http://placehold.it/100x100" alt="" width="100" height="100"></li>
-                    <li><img class="img-polaroid" src="http://placehold.it/100x100" alt="" width="100" height="100"></li>
+<?php foreach($obj['pictures'] as $pic) : ?>
+                    <li><img class="img-polaroid" src="<?php echo $pic ?>" alt="" width="100" height="100"></li>
+<?php endforeach; ?>
                 </ul>
+<?php endif; ?>
             </div>
         </div>
 <?php endforeach;

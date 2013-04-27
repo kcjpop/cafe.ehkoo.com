@@ -3,6 +3,8 @@ class Site_Controller extends Base_Controller
 {
 	public $layout = 'layouts.site';
 
+	protected $settings = array();
+
 	public function before()
 	{
 		// JavaScript
@@ -27,6 +29,15 @@ class Site_Controller extends Base_Controller
 			}
 		}
 
-		$this->layout->with('languages', $languages);
+		// Get all site settings
+		$setting = new Setting();
+		$settings = $setting->find();
+		foreach($settings as $item)
+		{
+			$this->settings[$item['_id']] = $item['value'];
+		}
+
+		$this->layout->with('languages', $languages)
+			->with('settings', $this->settings);
 	}
 }

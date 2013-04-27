@@ -37,8 +37,6 @@ Route::post('(:bundle)', function() {
 			)
 		));
 
-		return Response::json($response);
-
 		$result['status'] = 'success';
 		$result['files'][] = array(
 			'filename' => $file['name'],

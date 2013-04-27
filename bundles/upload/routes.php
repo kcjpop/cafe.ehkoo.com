@@ -38,3 +38,8 @@ Route::post('(:bundle)', function() {
 
 	return Response::json($result);
 });
+
+Route::post('(:bundle)/delete', function() {
+	$path = path('public') . 'uploads' . DS . Input::get('file');
+	@unlink($path);
+});

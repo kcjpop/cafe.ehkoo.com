@@ -16,8 +16,42 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 			'uploader' => $uploader
 		));
 	}
+	/**
+	 * Display the form to edit a cafe
+	 * 
+	 * @param  MongoId $id
+	 * @return void
+	 */
+	public function action_edit($id)
+	{
+		// Get cafe information
+		$model = new Cafe();
+		$cafe = $model->findOne(array(
+			'_id' => new MongoId($id)
+		));
 
-	public function action_do_create()
+		if($cafe === null) {
+			return Redirect::to('admin.dashboard')
+				->with('status', 'error')
+				->with('message', 'Could not find the requesting cafe');
+		}
+
+		// Get all languages
+		$language = new Language();
+		$languages = $language->find();
+
+		// Get file loader
+		$uploader = Router::route('GET', 'upload')
+			->call();
+
+		$this->layout->nest('content', 'admin.cafe', array(
+			'cafe'      => $cafe,
+			'languages' => $languages,
+			'uploader'  => $uploader
+		));
+	}
+
+	public function action_do_post()
 	{
 		if(Request::method() === 'POST')
 		{
@@ -37,18 +71,22 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 			else
 			{			
 				$cafe = new Cafe();
-				$result = $cafe->insert(array(
+				// Update or insert?
+				$id = Input::get('_id');
+				$data = array(
 					'name'     => Input::get('name'),
 					'address'  => Input::get('address'),
 					'review'   => Input::get('review'),
 					'pictures' => Input::get('files', array()),
-					'views'    => 0
-				));
+					'views'    => Input::get('views')
+				);
+				!empty($id) && ($data['_id'] = new MongoId($id));
+				$result = $cafe->save($data);
 
-				if($result !== true)
+				if((int) $result['ok'] !== 1)
 				{
 					$status = 'error';
-					$message = $result['errmsg'];
+					$message = 'An error has occurred. Please try again.';
 				}
 			}
 
@@ -56,7 +94,5 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 				->with('status', $status)
 				->with('message', $message);
 		}
-
-
 	}
 }

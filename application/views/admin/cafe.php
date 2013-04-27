@@ -5,7 +5,7 @@
 <?php endif; ?>
 <form method="post" action="<?php echo URL::to_action('admin.cafe@do_post') ?>">
     <input type="hidden" name="_id" value="<?php echo isset($cafe['_id']) ? $cafe['_id'] : '' ?>">
-    <input type="hidden" name="views" value="<?php echo isset($cafe['views']) ? $cafe['views'] : '' ?>">
+    <input type="hidden" name="views" value="<?php echo isset($cafe['views']) ? $cafe['views'] : '0' ?>">
     <fieldset>
         <legend>General</legend>
         <label>Name*</label>

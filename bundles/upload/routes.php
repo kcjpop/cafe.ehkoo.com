@@ -18,7 +18,7 @@ Route::post('(:bundle)', function() {
 	$file = Input::file('files');
 	if($file !== null)
 	{
-		$filename = md5($file['name']) .'.'. File::extension($file['name']);
+		$filename = md5($file['name'] . uniqid()) .'.'. File::extension($file['name']);
 		// return Response::json($filename);
 		$relative_path = date('Y') . DS . date('m') . DS . date('d');
 		$abs_path = path('public') . 'uploads' . DS . $relative_path;

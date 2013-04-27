@@ -60,4 +60,33 @@ class Cafe_Controller extends Site_Controller
 			'pagination' => $pagination->links()
 		));
 	}
+
+	/**
+	 * Display information of a cafe
+	 * 
+	 * @param  MongoId $id
+	 * @return void
+	 */
+	public function action_view($id)
+	{
+		Asset::add('jquery.mansonry', 'js/jquery.masonry.min.js');
+		$cafe = new Cafe();
+		$cafe = $cafe->findOne(array(
+			'_id' => new MongoId($id)
+		));
+
+		if($cafe === null)
+		{
+			return Response::error('404');
+		}
+
+		foreach( array('name', 'address', 'review') as $field )
+		{
+			$cafe[$field] = isset($cafe[$field][$this->settings['default_language']]) ? $cafe[$field][$this->settings['default_language']] : '';
+		}
+
+		$this->layout->nest('content', 'home.cafe', array(
+			'cafe' => $cafe
+		));
+	}
 }

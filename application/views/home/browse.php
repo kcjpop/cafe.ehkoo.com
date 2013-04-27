@@ -21,7 +21,7 @@
 foreach($cafes as $obj) : ?>
         <div class="row cafe_block">
             <div class="span7">
-                <a href="cafe.html"><h5><?php echo $obj['name'] ?></h5></a>
+                <a href="<?php echo URL::to_action('cafe@view', array($obj['_id'])) ?>" title=""><h5><?php echo $obj['name'] ?></h5></a>
                 <p class="address"><?php echo $obj['address'] ?></p>
                 <p><i class="icon-star"></i> View: <?php echo $obj['views'] ?></p>
             </div>

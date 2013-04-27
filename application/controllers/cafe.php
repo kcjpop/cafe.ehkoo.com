@@ -46,6 +46,8 @@ class Cafe_Controller extends Site_Controller
 					$obj['pictures'] = array_slice($pictures, 0, 3);
 				}
 
+				$obj['views'] = (int) $obj['views'];
+
 				$cafes[] = $obj;
 			}
 		}

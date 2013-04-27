@@ -31,9 +31,9 @@ Route::post('(:bundle)', function() {
 
 		$response = Event::first('upload::uploaded', array(
 			'file' => array(
-				'name' => $filename,
+				'name'          => $filename,
 				'original_name' => $file['name'],
-				'path' => $abs_path . DS . $filename,
+				'path'          => $abs_path . DS . $filename,
 			)
 		));
 

@@ -14,7 +14,7 @@ Event::listen('upload::uploaded', function($file) {
 		$mode = Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND;
 
 		$file_ext = '.' . File::extension($file['name']);
-		$new_file = str_replace($file_ext, '_100_thumb'.$file_ext, $file['path']);
+		$new_file = str_replace($file_ext, '_100'.$file_ext, $file['path']);
 		return $imagine->open($file['path'])
 			->thumbnail($size, $mode)
 			->save($new_file);

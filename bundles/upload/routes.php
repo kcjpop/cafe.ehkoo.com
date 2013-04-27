@@ -29,6 +29,16 @@ Route::post('(:bundle)', function() {
 
 		Input::upload('files', $abs_path, $filename);
 
+		$response = Event::first('upload::uploaded', array(
+			'file' => array(
+				'name' => $filename,
+				'original_name' => $file['name'],
+				'path' => $abs_path . DS . $filename,
+			)
+		));
+
+		return Response::json($response);
+
 		$result['status'] = 'success';
 		$result['files'][] = array(
 			'filename' => $file['name'],

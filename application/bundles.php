@@ -37,6 +37,6 @@ return array(
 
 	'docs'    => array('handles' => 'docs'),
 	'upload'  => array('handles' => 'upload'),
-	'imagine' => array('auto' => false),
+	'imagine' => array('auto' => true),
 
 );

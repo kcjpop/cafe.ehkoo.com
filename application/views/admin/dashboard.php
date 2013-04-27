@@ -25,6 +25,7 @@ endif;
                     <th>Name</th>
                     <th>Address</th>
                     <th>View</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,7 @@ endif;
                     <td><a title="Click to edit" href="<?php echo URL::to_action('admin.cafe@edit', array($obj['_id'])) ?>"><?php echo implode('<br>', $obj['name']) ?></a></td>
                     <td><?php echo implode('<br>', $obj['address']) ?></td>
                     <td><?php echo $obj['views'] ?></td>
+                    <td><a title="Click to delete" href="<?php echo URL::to_action('admin.cafe@delete', array($obj['_id'])) ?>">Delete</a></td>
                 </tr>
         <?php endforeach; ?>
             </tbody>

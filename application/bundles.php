@@ -38,5 +38,6 @@ return array(
 	'docs'    => array('handles' => 'docs'),
 	'upload'  => array('handles' => 'upload'),
 	'imagine' => array('auto' => true),
+	'phpass' => array('auto' => false),
 
 );

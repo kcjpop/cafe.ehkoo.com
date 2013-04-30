@@ -11,4 +11,5 @@ span.file-input-area {position: relative; cursor: pointer;}
 #file_list code {display: block; margin-bottom: 3px;}
 #progress {display: none;}
 
+#gallery {display: block; position: relative;}
 #gallery .item {float: left; width: 300px;}

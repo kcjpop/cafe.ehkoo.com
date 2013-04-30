@@ -70,7 +70,7 @@ class Cafe_Controller extends Site_Controller
 	public function action_view($id)
 	{
 		// Add jQuery Mansonry to arrange picutures
-		Asset::add('jquery.mansonry', 'js/jquery.masonry.min.js');
+		Asset::add('jquery.masonry', 'js/jquery.masonry.min.js');
 		
 		// Add ColorBox
 		Asset::add('jquery.colorbox', 'js/jquery.colorbox.min.js');

@@ -24,6 +24,9 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 	 */
 	public function action_edit($id)
 	{
+		// Add jQuery mansonry to display images
+		Asset::add('jquery.masonry', 'js/jquery.masonry.min.js');
+
 		// Get cafe information
 		$model = new Cafe();
 		$cafe = $model->findOne(array(

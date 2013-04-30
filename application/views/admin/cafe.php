@@ -64,9 +64,9 @@ endif;
 ?>
         <legend>Pictures</legend>
 <?php if(isset($cafe['pictures']) && !empty($cafe['pictures'])) : ?>
-        <ul class="thumbnails">
+        <ul class="thumbnails" id="gallery">
     <?php foreach($cafe['pictures'] as $item) : ?>
-            <li class="span3"><a href="<?php echo URL::to_action('upload.delete') ?>" data-file="<?php echo $item ?>" title="Click to delete"><img class="img-polaroid" src="<?php echo URL::to_asset('uploads/' . $item) ?>"></a>
+            <li class="item"><a href="<?php echo URL::to_action('upload.delete') ?>" data-file="<?php echo $item ?>" title="Click to delete"><img class="img-polaroid" src="<?php echo URL::to_asset('uploads/' . $item) ?>"></a>
                 <input type="hidden" name="files[]" value="<?php echo $item ?>">
             </li>
     <?php endforeach; ?>
@@ -100,6 +100,12 @@ $(function() {
         });
         
         return false;
+    });
+
+    $('#gallery').imagesLoaded(function() {
+        $('#gallery').masonry({
+            itemSelector: '.item'
+        });
     });
 });
 </script>

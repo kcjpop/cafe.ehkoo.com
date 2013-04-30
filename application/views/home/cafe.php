@@ -14,7 +14,7 @@
 <?php if(!empty($cafe['pictures'])) : ?>
         <ul id="gallery" class="thumbnails">
     <?php foreach($cafe['pictures'] as $pic) : ?>
-            <li class="item"><img class="img-polaroid" src="<?php echo URL::to_asset('uploads'.DS.$pic) ?>" alt=""></li>
+            <li class="item"><a href="<?php echo URL::to_asset('uploads'.DS.$pic) ?>" title="" rel="colorbox"><img class="img-polaroid" src="<?php echo URL::to_asset('uploads'.DS.$pic) ?>" alt=""></a></li>
     <?php endforeach; ?>
         </ul>
 <?php endif; ?>
@@ -25,5 +25,7 @@ $(function() {
             itemSelector: '.item'
         });
     });
+
+    $('a[rel=colorbox]').colorbox({rel: 'gallery'});
 });
     </script>

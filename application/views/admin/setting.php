@@ -19,19 +19,19 @@ if($status !== null) :
     <div class="control-group">
         <label class="control-label" for="site_name">Site Name</label>
         <div class="controls">
-            <input class="span6" type="text" name="key[site_name]" id="site_name" value="<?php echo $settings['site_name'] ?>">
+            <input class="span6" type="text" name="key[site_name]" id="site_name" value="<?php echo isset($settings['site_name']) ? $settings['site_name'] : ''  ?>">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="meta_keywords">Meta Keywords</label>
         <div class="controls">
-            <input class="span6" type="text" name="key[meta_keywords]" id="meta_keywords" value="<?php echo $settings['meta_keywords'] ?>">
+            <input class="span6" type="text" name="key[meta_keywords]" id="meta_keywords" value="<?php echo isset($settings['meta_keywords']) ? $settings['meta_keywords'] : '' ?>">
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="meta_description">Meta Description</label>
         <div class="controls">
-            <input class="span6" type="text" name="key[meta_description]" id="meta_description" value="<?php echo $settings['meta_description'] ?>">
+            <input class="span6" type="text" name="key[meta_description]" id="meta_description" value="<?php echo isset($settings['meta_description']) ? $settings['meta_description'] : '' ?>">
         </div>
     </div>
     <div class="control-group">
@@ -98,7 +98,7 @@ if($status !== null) :
                 <input class="span4" type="text" name="name" placeholder="">
                 <label>Language code</label>
                 <input class="span4" type="text" name="code" placeholder="">
-                <span class="help-block">The country code is in the format <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a></span>
+                <span class="help-block">The country code is in the format <a href="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a></span>
             </fieldset>
         </form>
     </div>

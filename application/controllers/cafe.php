@@ -69,22 +69,32 @@ class Cafe_Controller extends Site_Controller
 	 */
 	public function action_view($id)
 	{
+		// Add jQuery Mansonry to arrange picutures
 		Asset::add('jquery.mansonry', 'js/jquery.masonry.min.js');
+		
+		// Add ColorBox
+		Asset::add('jquery.colorbox', 'js/jquery.colorbox.min.js');
+		Asset::add('css.colorbox', 'css/colorbox/colorbox.css');
+
+		// Get cafe information
 		$cafe = new Cafe();
 		$cafe = $cafe->findOne(array(
 			'_id' => new MongoId($id)
 		));
 
+		// If not found, raise a 404
 		if($cafe === null)
 		{
 			return Response::error('404');
 		}
 
+		// Get content based on current language
 		foreach( array('name', 'address', 'review') as $field )
 		{
 			$cafe[$field] = isset($cafe[$field][$this->settings['default_language']]) ? $cafe[$field][$this->settings['default_language']] : '';
 		}
 
+		// Display the view
 		$this->layout->nest('content', 'home.cafe', array(
 			'cafe' => $cafe
 		));

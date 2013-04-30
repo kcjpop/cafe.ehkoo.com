@@ -51,6 +51,11 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 		));
 	}
 
+	/**
+	 * Handle POST data and update/create based on the present of ID
+	 * 
+	 * @return void
+	 */
 	public function action_do_post()
 	{
 		if(Request::method() === 'POST')
@@ -62,6 +67,8 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 				'name' => 'required|array|array_at_least_not_empty'
 			);
 
+			$id = Input::get('_id', false);
+
 			$validation = Validator::make(Input::all(), $rules);
 			if($validation->fails())
 			{
@@ -71,8 +78,6 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 			else
 			{			
 				$cafe = new Cafe();
-				// Update or insert?
-				$id = Input::get('_id');
 				$data = array(
 					'name'     => Input::get('name'),
 					'address'  => Input::get('address'),
@@ -80,7 +85,14 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 					'pictures' => Input::get('files', array()),
 					'views'    => Input::get('views')
 				);
-				!empty($id) && ($data['_id'] = new MongoId($id));
+
+				// Determine this is update or create
+				if(!empty($id))
+				{
+					$data['_id'] = new MongoId($id);
+					$message = 'Information has been updated.';
+				}
+
 				$result = $cafe->save($data);
 
 				if((int) $result['ok'] !== 1)
@@ -90,7 +102,7 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 				}
 			}
 
-			return Redirect::to('admin')
+			return Redirect::to(Request::referrer())
 				->with('status', $status)
 				->with('message', $message);
 		}

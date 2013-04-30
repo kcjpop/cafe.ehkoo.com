@@ -3,6 +3,21 @@
 <?php else : ?>
     <h3>Add new cafe</h3>
 <?php endif; ?>
+<?php
+$status = Session::get('status');
+if($status !== null) :
+    ?>
+        <div class="row">
+            <div class="span12">
+                <div class="alert alert-<?php echo $status ?>">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong><?php echo ucfirst($status) ?>!!!</strong> <?php echo Session::get('message') ?>
+                </div>
+            </div>
+        </div>
+    <?php
+endif;
+?>
 <form method="post" action="<?php echo URL::to_action('admin.cafe@do_post') ?>">
     <input type="hidden" name="_id" value="<?php echo isset($cafe['_id']) ? $cafe['_id'] : '' ?>">
     <input type="hidden" name="views" value="<?php echo isset($cafe['views']) ? $cafe['views'] : '0' ?>">

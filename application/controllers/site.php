@@ -32,6 +32,13 @@ class Site_Controller extends Base_Controller
 		// Get all site settings
 		$setting = new Setting();
 		$settings = $setting->find();
+
+		// If there are no settings, definitely it's a server error
+		if(empty($settings))
+		{
+			return Response::error('500');
+		}
+
 		foreach($settings as $item)
 		{
 			$this->settings[$item['_id']] = $item['value'];

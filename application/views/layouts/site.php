@@ -17,7 +17,7 @@
                         <li><a href="<?php echo URL::base() ?>" title="">Home</a></li>
                         <li><a href="<?php echo URL::to('cafe') ?>" title="">Browse</a></li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="flag flag-us"></i> English<b class="caret"></b>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="flag flag-<?php echo $settings['default_language'] ?>"></i> English<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
 <?php if(isset($languages)) :

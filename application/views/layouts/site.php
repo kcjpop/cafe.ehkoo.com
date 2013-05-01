@@ -23,7 +23,7 @@
 <?php if(isset($languages)) :
 foreach($languages as $obj) :
 ?>
-                            <li><a href="<?php echo URL::current() ?>?lang=<?php echo $obj ['code'] ?>"><i class="flag flag-<?php echo $obj['code'] ?>"></i> <?php echo $obj['name'] ?></a></li>
+                            <li><a href="<?php echo URL::to_action('language@change', array($obj['code'])) ?>"><i class="flag flag-<?php echo $obj['code'] ?>"></i> <?php echo $obj['name'] ?></a></li>
 <?php endforeach;
 endif; ?>
                         </ul>

@@ -28,10 +28,12 @@ foreach($cafes as $obj) : ?>
             <div class="span5 text-center">
 <?php if(isset($obj['pictures']) && !empty($obj['pictures'])) : ?>
                 <ul class="thumbnails">
-<?php foreach($obj['pictures'] as $pic) : ?>
+    <?php foreach($obj['pictures'] as $pic) : ?>
                     <li><img class="img-polaroid" src="<?php echo $pic ?>" alt="" width="100" height="100"></li>
-<?php endforeach; ?>
+    <?php endforeach; ?>
                 </ul>
+<?php else : ?>
+                <p>No images</p>
 <?php endif; ?>
             </div>
         </div>

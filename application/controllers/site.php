@@ -44,6 +44,12 @@ class Site_Controller extends Base_Controller
 			$this->settings[$item['_id']] = $item['value'];
 		}
 
+		// Determine current language based on cookie value
+		if(Cookie::get('site_language'))
+		{
+			$this->settings['default_language'] = Cookie::get('site_language');
+		}
+
 		$this->layout->with('languages', $languages)
 			->with('settings', $this->settings);
 	}

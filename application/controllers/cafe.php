@@ -17,39 +17,7 @@ class Cafe_Controller extends Site_Controller
 			->limit($per_page);
 		if($cursor->hasNext())
 		{
-			$default_language = $this->settings['default_language'];
-
-			foreach($cursor as $obj)
-			{
-				foreach(array('name', 'address', 'reviews') as $field)
-				{
-					$obj[$field] = isset($obj[$field][$default_language]) ? $obj[$field][$default_language] : '';
-				}
-
-				$pictures = array();
-				if(isset($obj['pictures']) && !empty($obj['pictures']))
-				{
-					shuffle($obj['pictures']);
-					foreach($obj['pictures'] as $pic)
-					{
-						// Check if a thumbnail exists
-						$path = path('public').'uploads'.DS.$pic;
-						$ext = '.'.File::extension($path);
-						$pic = str_replace($ext, '_100'.$ext, $pic);
-						$path = path('public').'uploads'.DS.$pic;
-						if(file_exists($path))
-						{
-							$pictures[] = URL::to_asset('uploads'.DS.$pic);
-						}
-					}
-
-					$obj['pictures'] = array_slice($pictures, 0, 3);
-				}
-
-				$obj['views'] = (int) $obj['views'];
-
-				$cafes[] = $obj;
-			}
+			$cafes = $this->format_cafe_cursor($cursor);
 		}
 
 		$total = $cafe->count();
@@ -98,5 +66,66 @@ class Cafe_Controller extends Site_Controller
 		$this->layout->nest('content', 'home.cafe', array(
 			'cafe' => $cafe
 		));
+	}
+
+	/**
+	 * Search cafe(s)
+	 * 
+	 * @return void
+	 */
+	public function action_search()
+	{
+		$cafes = array();
+		$lang  = $this->settings['default_language'];
+
+		$cafe = new Cafe();
+		$result = $cafe->search(Input::get('q'), $lang);
+		if($result->hasNext())
+		{
+			$cafes = $this->format_cafe_cursor($result);
+		}
+
+		$this->layout->nest('content', 'home.browse', array(
+			'cafes' => $cafes,
+			'pagination' => ''
+		));
+	}
+
+	protected function format_cafe_cursor($cursor)
+	{	
+		$cafes = array();
+		foreach($cursor as $obj)
+		{
+			$default_language = $this->settings['default_language'];
+			foreach(array('name', 'address', 'reviews') as $field)
+			{
+				$obj[$field] = isset($obj[$field][$default_language]) ? $obj[$field][$default_language] : '';
+			}
+
+			$pictures = array();
+			if(isset($obj['pictures']) && !empty($obj['pictures']))
+			{
+				shuffle($obj['pictures']);
+				foreach($obj['pictures'] as $pic)
+				{
+					// Check if a thumbnail exists
+					$path = path('public').'uploads'.DS.$pic;
+					$ext = '.'.File::extension($path);
+					$pic = str_replace($ext, '_100'.$ext, $pic);
+					$path = path('public').'uploads'.DS.$pic;
+					if(file_exists($path))
+					{
+						$pictures[] = URL::to_asset('uploads'.DS.$pic);
+					}
+				}
+
+				$obj['pictures'] = array_slice($pictures, 0, 3);
+			}
+
+			$obj['views'] = (int) $obj['views'];
+
+			$cafes[] = $obj;
+		}
+		return $cafes;
 	}
 }

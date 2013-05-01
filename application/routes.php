@@ -36,6 +36,7 @@ Route::get('/', 'home@index');
 Route::get('admin', 'admin.dashboard@index');
 
 Route::controller('cafe');
+Route::controller('search');
 
 Route::controller('admin.setting');
 Route::controller('admin.dashboard');

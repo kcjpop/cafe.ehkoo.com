@@ -1,6 +1,6 @@
 <span class="btn file-input-area text-right">
 	<i class="icon-upload"></i> <span>Select files...</span>
-	<input id="file_upload" type="file" name="files" data-url="<?php echo URL::to_action('upload') ?>" multiple>
+	<input id="file_upload" type="file" name="uploader" data-url="<?php echo URL::to_action('upload') ?>" multiple>
 </span>
 <div id="file_list"></div>
 <div class="progress progress-striped active" id="progress">

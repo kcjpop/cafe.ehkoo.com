@@ -15,7 +15,7 @@ Route::get('(:bundle)', function()
 Route::post('(:bundle)', function() {
 	$result = array('status' => 'error');
 
-	$file = Input::file('files');
+	$file = Input::file('uploader');
 	if($file !== null)
 	{
 		$filename = md5($file['name'] . uniqid()) .'.'. File::extension($file['name']);
@@ -27,7 +27,7 @@ Route::post('(:bundle)', function() {
 			mkdir($abs_path, 0755, true);
 		}
 
-		Input::upload('files', $abs_path, $filename);
+		Input::upload('uploader', $abs_path, $filename);
 
 		$response = Event::first('upload::uploaded', array(
 			'file' => array(

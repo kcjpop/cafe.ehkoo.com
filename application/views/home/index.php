@@ -1,34 +1,31 @@
+<?php if(!empty($hottest)) : ?>
         <div id="myCarousel" class="carousel slide">
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+<?php $total = count($hottest);
+$index = 0;
+while($index < $total) :
+?>
+                <li <?php if($index === 0) echo 'class="active"' ?> data-target="#myCarousel" data-slide-to="<?php echo $index++ ?>"></li>
+<?php endwhile; ?>
             </ol>
             <!-- Carousel items -->
             <div class="carousel-inner">
-                <div class="active item">
-                    <img alt="" src="http://placehold.it/940x500">
+<?php foreach($hottest as $idx => $obj) :  ?>
+                <div class="item<?php if($idx === 0) echo ' active' ?>">                  
+                    <ul class="masonry_item thumbnails">
+<?php foreach($obj['pictures'] as $pic) : ?>
+                        <li class="item"><img class="img-polaroid" src="<?php echo URL::to_asset('uploads'.DS.$pic) ?>" alt=""></li>
+<?php endforeach; ?>
+                    </ul>
                     <div class="carousel-caption">
-                        <h4>Cafe Nhen</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <h4><?php echo $obj['name'] ?></h4>
+                        <p><?php echo $obj['address'] ?></p>
                     </div>
                 </div>
-                <div class="item">
-                    <img alt="" src="http://placehold.it/940x500">
-                    <div class="carousel-caption">
-                        <h4>First Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img alt="" src="http://placehold.it/940x500">
-                    <div class="carousel-caption">
-                        <h4>First Thumbnail label</h4>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </div>
+<?php endforeach; ?>
             </div>
         </div>
+<?php endif; ?>
 
         <div class="row">
             <div class="span4">
@@ -53,3 +50,16 @@
                 </div>
             </div>
         </div>
+<script type="text/javascript">
+$(function() {
+    $('.carousel').carousel({
+        inteval: 2000
+    });
+
+    $('.masonry_item').imagesLoaded(function() {
+        $('.masonry_item').masonry({
+            itemSelector: '.item'
+        });
+    });
+});
+</script>

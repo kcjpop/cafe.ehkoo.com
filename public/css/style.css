@@ -8,3 +8,5 @@ div.cafe_block .thumbnails > li {margin-bottom: 0;}
 
 #gallery {margin-top: 10px;}
 #gallery .item {float: left; width: 300px;}
+.masonry_item {max-height: 450px; overflow: hidden;}
+.masonry_item > .item {float: left; width: 300px;}

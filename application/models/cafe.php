@@ -27,4 +27,18 @@ class Cafe extends MongoDB_Base
 			)		
 		));
 	}
+
+	/**
+	 * Get cafes that have the highest views
+	 * 
+	 * @return MongoCursor
+	 */
+	public function get_hottest()
+	{
+		return $this->db->find()
+			->sort(array(
+				'views' => -1
+			))
+			->limit(10);
+	}
 }

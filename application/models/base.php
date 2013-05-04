@@ -46,4 +46,11 @@ class MongoDB_Base
 	{
 		return $this->db->save($document, $options);
 	}
+
+	public function delete($id)
+	{
+		return $this->db->remove(array(
+			'_id' => new MongoId($id)
+		));
+	}
 }

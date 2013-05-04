@@ -54,6 +54,25 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 		));
 	}
 
+
+	public function action_delete($id)
+	{
+		$status = 'error';
+		$message = 'An error has occured. Please try again.';
+
+		$cafe = new Cafe();
+		$result = $cafe->delete($id);
+		if($result)
+		{
+			$status = 'success';
+			$message = 'Cafe has been deleted';
+		}
+
+		return Redirect::to(Request::referrer())
+				->with('status', $status)
+				->with('message', $message);
+	}
+
 	/**
 	 * Handle POST data and update/create based on the present of ID
 	 * 

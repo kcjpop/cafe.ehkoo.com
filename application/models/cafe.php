@@ -41,4 +41,21 @@ class Cafe extends MongoDB_Base
 			))
 			->limit(10);
 	}
+
+	/**
+	 * Increase the view of a cafe
+	 * 
+	 * @param  string $id cafe's ID
+	 * @return boolean
+	 */
+	public function increase_view($id)
+	{
+		return $this->db->update(array(
+			'_id' => new MongoId($id)
+		), array(
+			'$inc' => array(
+				'views' => 1
+			)
+		));
+	}
 }

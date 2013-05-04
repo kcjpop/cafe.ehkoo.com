@@ -44,8 +44,11 @@ class Cafe_Controller extends Site_Controller
 		Asset::add('jquery.colorbox', 'js/jquery.colorbox.min.js');
 		Asset::add('css.colorbox', 'css/colorbox/colorbox.css');
 
-		// Get cafe information
 		$cafe = new Cafe();
+		// Increase the view
+		$cafe->increase_view($id);
+		
+		// Get cafe information
 		$cafe = $cafe->findOne(array(
 			'_id' => new MongoId($id)
 		));

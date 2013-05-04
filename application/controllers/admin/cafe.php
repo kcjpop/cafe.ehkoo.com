@@ -105,7 +105,7 @@ class Admin_Cafe_Controller extends Admin_Base_Controller
 					'address'  => Input::get('address'),
 					'review'   => Input::get('review'),
 					'pictures' => Input::get('files', array()),
-					'views'    => Input::get('views')
+					'views'    => (int) Input::get('views')
 				);
 
 				// Determine this is update or create
